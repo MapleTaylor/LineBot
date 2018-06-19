@@ -38,18 +38,7 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_text_message(event):
     text = event.message.text + '\n' #message from user
-    url = "https://tw.beanfun.com/maplestory/Bullentin_alpha/_BullentinDefault.aspx"
-    request = requests.get(url)
-    content = request.content
-    soup = BeautifulSoup(content, "html.parser")
-    hoarding = soup.select(".maple01")
 
-    for i in hoarding[1:]:
-        h = i.find("a").get("href")
-        if not "https" in h:
-            test += "https://tw.beanfun.com/%s\n" % h
-        else:
-            test += h + '\n'
     line_bot_api.reply_message(event.reply_token, TextSendMessage(text=text)) #reply the same message from user
     
 
