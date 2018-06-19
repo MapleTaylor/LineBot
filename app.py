@@ -15,8 +15,8 @@ from linebot.models import (
 
 app = Flask(__name__)
 
-line_bot_api = LineBotApi('quz2dQQwCibQaIaWOJ7Y2uz6Uh486G+WHjLAFvuhYN0EHur2EtKMstVo+Y0niIjNhV9adAg/LDK7pY1T2ZRuBeH+Rga1DljktGG+2/fNmdw9FX0kyN6HWiV0zUyj3Vkhk7EcWdGgSjCmTcc/c9e3EwdB04t89/1O/w1cDnyilFU=') #Your Channel Access Token
-handler = WebhookHandler('456d1cdec1fb86bc17c82d3c0c3941c6') #Your Channel Secret
+line_bot_api = LineBotApi('quz2dQQwCibQaIaWOJ7Y2uz6Uh486G+WHjLAFvuhYN0EHur2EtKMstVo+Y0niIjNhV9adAg/LDK7pY1T2ZRuBeH+Rga1DljktGG+2/fNmdw9FX0kyN6HWiV0zUyj3Vkhk7EcWdGgSjCmTcc/c9e3EwdB04t89/1O/w1cDnyilFU=') # Your Channel Access Token
+handler = WebhookHandler('456d1cdec1fb86bc17c82d3c0c3941c6') # Your Channel Secret
 
 @app.route("/callback", methods=['POST'])
 def callback():
@@ -37,11 +37,13 @@ def callback():
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_text_message(event):
-    text = event.message.text #message from user
-
-    line_bot_api.reply_message(
-        event.reply_token,
-        TextSendMessage(text=text)) #reply the same message from user
+    url = "https://tw.beanfun.com/maplestory/Bullentin_alpha/_BullentinDefault.aspx"
+    request = requests.get(url)
+    content = request.content
+    soup = BeautifulSoup(content, "html.parser")
+    hoarding = soup.select(".maple01")
+    text = event.message.text # message from user
+    line_bot_api.reply_message(event.reply_token, TextSendMessage(text=text)) # reply the same message from user
     
 
 import os
