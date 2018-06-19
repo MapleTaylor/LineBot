@@ -1,7 +1,5 @@
 # encoding: utf-8
 from flask import Flask, request, abort
-import requests
-from bs4 import BeautifulSoup
 
 from linebot import (
     LineBotApi, WebhookHandler
@@ -39,7 +37,9 @@ def callback():
 def handle_text_message(event):
     text = event.message.text #message from user
 
-    line_bot_api.reply_message(event.reply_token, TextSendMessage(text=text)) #reply the same message from user
+    line_bot_api.reply_message(
+        event.reply_token,
+        TextSendMessage(text=text)) #reply the same message from user
     
 
 import os
