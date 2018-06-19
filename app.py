@@ -45,6 +45,7 @@ def handle_text_message(event):
     text = event.message.text # message from user
     for i in hoarding[1:]:
         h = i.find("a").get("href")
+        text += h
     line_bot_api.reply_message(event.reply_token, TextSendMessage(text=text)) # reply the same message from user
     
 
