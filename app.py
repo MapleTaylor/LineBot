@@ -42,7 +42,7 @@ def handle_text_message(event):
     content = request.content
     soup = BeautifulSoup(content, "html.parser")
     hoarding = soup.select(".maple01")
-    text = "%s 景澤是傻逼" % event.message.text # message from user
+    text = "%s ..." % event.message.text # message from user
     line_bot_api.reply_message(event.reply_token, TextSendMessage(text=text)) # reply the same message from user
     
 
