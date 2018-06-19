@@ -1,5 +1,7 @@
 # encoding: utf-8
 from flask import Flask, request, abort
+import requests
+from bs4 import BeautifulSoup
 
 from linebot import (
     LineBotApi, WebhookHandler
