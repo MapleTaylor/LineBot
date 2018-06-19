@@ -49,7 +49,7 @@ def handle_text_message(event):
 	    if not "https" in h:
 		    text += "* https://tw.beanfun.com/%s\n\n" % h
 	    else:
-		    text += "%s\n\n" % h
+		    text += "* %s\n\n" % h
     line_bot_api.reply_message(event.reply_token, TextSendMessage(text=text)) # reply the same message from user
     
 
