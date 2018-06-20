@@ -2,19 +2,11 @@
 from flask import Flask, request, abort
 import requests
 from bs4 import BeautifulSoup
-
-from linebot import (
-    LineBotApi, WebhookHandler
-)
-from linebot.exceptions import (
-    InvalidSignatureError
-)
-from linebot.models import (
-    MessageEvent, TextMessage, TextSendMessage,
-)
+from linebot import LineBotApi, WebhookHandler
+from linebot.exceptions import InvalidSignatureError
+from linebot.models import MessageEvent, TextMessage, TextSendMessage
 
 app = Flask(__name__)
-
 line_bot_api = LineBotApi('quz2dQQwCibQaIaWOJ7Y2uz6Uh486G+WHjLAFvuhYN0EHur2EtKMstVo+Y0niIjNhV9adAg/LDK7pY1T2ZRuBeH+Rga1DljktGG+2/fNmdw9FX0kyN6HWiV0zUyj3Vkhk7EcWdGgSjCmTcc/c9e3EwdB04t89/1O/w1cDnyilFU=') # Your Channel Access Token
 handler = WebhookHandler('456d1cdec1fb86bc17c82d3c0c3941c6') # Your Channel Secret
 
