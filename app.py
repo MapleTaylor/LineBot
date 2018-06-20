@@ -42,8 +42,7 @@ def handle_text_message(event):
 		    text += "* %s\n\n" % h
     text = text.split('*')
     for i in text:
-        line_bot_api.reply_message(event.reply_token, TextSendMessage(text=i))
-    line_bot_api.reply_message(event.reply_token, TextSendMessage(text=text)) # reply the same message from user
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text=i)) # reply the same message from user
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0',port=os.environ['PORT'])
