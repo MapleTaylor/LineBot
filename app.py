@@ -33,14 +33,13 @@ def handle_text_message(event):
     soup = BeautifulSoup(content, "html.parser")
     hoarding = soup.select(".maple01")
     # text = event.message.text # message from user
-    text = ""
+    text = []
     for i in hoarding[1:]:
 	    h = i.find("a").get("href")
 	    if not "https" in h:
-		    text += "* https://tw.beanfun.com/%s\n\n" % h
+		    text.append("https://tw.beanfun.com/%s" % h)
 	    else:
-		    text += "* %s\n\n" % h
-    text = text.split('*')
+		    text.append(h)
     for i in text:
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=i)) # reply the same message from user
 
