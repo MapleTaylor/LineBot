@@ -32,11 +32,12 @@ def callback():
 def handle_text_message(event):
     translater = GoogleTranslater()
     determiner = MoodDeterminer()
+    line_bot_api.reply_message(event.reply_token, TextSendMessage(text="hello"))
     translater.sendText(event.message.text)
     receive1 = translater.getText()
     determiner.sendText(receive1)
     text = "開心程度: %s" % determiner.getText()
-    line_bot_api.reply_message(event.reply_token, TextSendMessage(text=text)) # reply the same message from user
+    # line_bot_api.reply_message(event.reply_token, TextSendMessage(text=text)) # reply the same message from user
     
 
 if __name__ == "__main__":
