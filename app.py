@@ -32,7 +32,7 @@ def callback():
 def handle_text_message(event):
     translater = GoogleTranslater()
     determiner = MoodDeterminer()
-    translater.sendText()
+    translater.sendText(event.message.text)
     receive1 = translater.getText()
     determiner.sendText(receive1)
     text = determiner.getText()
