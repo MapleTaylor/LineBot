@@ -10,7 +10,7 @@ import time
 
 class GoogleTranslater():
 	def __init__(self):
-		self.driver = webdriver.PhantomJS()
+		self.driver = webdriver.PhantomJS("phantomjs")
 		self.driver.get("https://translate.google.com.tw/?hl=zh-TW&tab=TT#zh-CN/en/")
 	def sendText(self, text):
 		self.source = self.driver.find_element_by_id("source")
