@@ -10,7 +10,7 @@ import time
  
 class MoodDeterminer():
 	def __init__(self):
-		self.driver = webdriver.PhantomJS("~/bin/phantomjs")
+		self.driver = webdriver.PhantomJS("bin/phantomjs")
 		self.driver.get("https://azure.microsoft.com/zh-tw/services/cognitive-services/text-analytics/")
 	def sendText(self, text):
 		self.source = self.driver.find_element_by_id("text-analytics-demo")
