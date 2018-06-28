@@ -35,7 +35,7 @@ def handle_text_message(event):
     translater.sendText(event.message.text)
     receive1 = translater.getText()
     determiner.sendText(receive1)
-    text = determiner.getText()
+    text = "開心程度: %s" % determiner.getText()
     line_bot_api.reply_message(event.reply_token, TextSendMessage(text=text)) # reply the same message from user
     
 
