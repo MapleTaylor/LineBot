@@ -7,7 +7,7 @@ from flask import Flask, request, abort
 from bs4 import BeautifulSoup
 import requests
 import time
-
+ 
 class MoodDeterminer():
 	def __init__(self):
 		self.driver = webdriver.PhantomJS("~/bin/phantomjs")
