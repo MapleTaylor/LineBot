@@ -30,9 +30,9 @@ def callback():
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_text_message(event):
+    line_bot_api.reply_message(event.reply_token, TextSendMessage(text="hello"))
     translater = GoogleTranslater()
     determiner = MoodDeterminer()
-    line_bot_api.reply_message(event.reply_token, TextSendMessage(text="hello"))
     translater.sendText(event.message.text)
     receive1 = translater.getText()
     determiner.sendText(receive1)
